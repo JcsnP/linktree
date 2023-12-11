@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lodash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style media="screen">
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container mx-auto w-80">
+      <div class="w-full flex items-center justify-between py-4">
+        <h1 class="font-semibold text-2xl text-rose-600">JcsnP</h1>
+        <a href="#" class="bg-black text-white font-semibold px-4 py-2 rounded-lg">Github</a>
+      </div>
+
+      <div class="w-80 h-80 relative shadow-md rounded-lg">
+        <img id="profile_image" src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p4161_i_v8_ac.jpg" alt="profile image" class="cursor-pointer w-full h-full object-cover rounded-lg">
+      </div>
+
+      <h1 class="text-center mt-5 mb-3 text-2xl font-semibold uppercase">Chitsanupong Paenyoi</h1>
+      <h2 class="text-slate-700 text-center text-xl">@JcsnP</h2>
+
+      <ul class="my-5">
+        <li>
+          <a href="https://twitter.com/James_JcsnP" target="_blank" class="mb-2 block text-center py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">Twitter</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/chitsanupong-paenyoi-6a0a06284/" target="_blank" class="mb-2 block text-center py-2 bg-blue-800 text-white font-semibold rounded-lg hover:bg-blue-900">LinkedIn</a>
+        </li>
+        <li>
+          <a href="https://github.com/jcsnp" target="_blank" class="mb-2 block text-center py-2 bg-black text-white font-semibold rounded-lg">Github</a>
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      const profileImage = document.getElementById("profile_image")
+      const API = "https://api.github.com/users/jcsnp"
+
+      function fetchProfileImage() {
+        fetch(API)
+          .then(response => response.json())
+          .then(result => {
+            if (result?.avatar_url) {
+              profileImage.src = result.avatar_url
+            }
+          })
+      }
+
+      window.onload = fetchProfileImage
+    </script>
+  </body>
+</html>
